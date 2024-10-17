@@ -13,7 +13,6 @@ import com.example.backend.model.User;
 import com.example.backend.service.UserService;
 
 @Controller
-@RequestMapping("/users")
 public class UserController {
 
     @Autowired
