@@ -20,32 +20,32 @@ public class UserController {
     @GetMapping
     public String viewHomePage(Model model) {
         model.addAttribute("users", userService.getAllUsers());
-        return "users/list";
+        return "/list";
     }
 
     @GetMapping("/new")
     public String showNewUserForm(Model model) {
         User user = new User();
         model.addAttribute("user", user);
-        return "users/form";
+        return "/form";
     }
 
     @PostMapping("/save")
     public String saveUser(@ModelAttribute("user") User user) {
         userService.saveUser(user);
-        return "redirect:/users";
+        return "redirect:/";
     }
 
     @GetMapping("/edit/{id}")
     public String showFormForUpdate(@PathVariable("id") Long id, Model model) {
         User user = userService.getUserById(id);
         model.addAttribute("user", user);
-        return "users/form";
+        return "/form";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteUser(@PathVariable("id") Long id) {
         userService.deleteUserById(id);
-        return "redirect:/users";
+        return "redirect:/";
     }
 }
