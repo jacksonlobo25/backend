@@ -20,14 +20,14 @@ public class PersonController {
     @GetMapping
     public String viewHomePage(Model model) {
         model.addAttribute("persons", personService.getAllUsers());
-        return "/list";
+        return "list";
     }
 
     @GetMapping("/new")
     public String showNewUserForm(Model model) {
         Person person = new Person();
         model.addAttribute("person", person);
-        return "/form";
+        return "form";
     }
 
     @PostMapping("/save")
@@ -40,7 +40,7 @@ public class PersonController {
     public String showFormForUpdate(@PathVariable("id") String id, Model model) {
     	Person user = personService.getUserById(id);
         model.addAttribute("user", user);
-        return "/form";
+        return "form";
     }
 
     @GetMapping("/delete/{id}")
