@@ -2,12 +2,13 @@ package com.example.backend.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.bson.types.ObjectId;
 
 @Document(collection = "persons")
 public class Person {
     
     @Id
-    private String id;
+    private ObjectId id;
     
     private String name;
     private String email;
@@ -21,11 +22,11 @@ public class Person {
 		this.role = role;
     }
 
-	public String getId() {
+	public ObjectId getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(ObjectId id) {
 		this.id = id;
 	}
 
