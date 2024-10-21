@@ -31,8 +31,8 @@ public class PersonController {
     }
 
     @PostMapping("/save")
-    public String saveUser(@ModelAttribute("user") Person user) {
-        personService.saveUser(user);
+    public String saveUser(@ModelAttribute("person") Person person) {
+        personService.saveUser(person);
         return "redirect:/";
     }
 
