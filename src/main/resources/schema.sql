@@ -1,0 +1,6 @@
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password';
+FLUSH PRIVILEGES;
+
+CREATE USER 'user'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON mydatabase.* TO 'springuser'@'%';
+FLUSH PRIVILEGES;
