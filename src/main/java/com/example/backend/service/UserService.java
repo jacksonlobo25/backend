@@ -5,28 +5,28 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.backend.model.User;
-import com.example.backend.respository.UserRepository;
+import com.example.backend.model.Person;
+import com.example.backend.respository.PersonRepository;
 
 @Service
 public class UserService{
 
     @Autowired
-    private UserRepository userRepository;
+    private PersonRepository userRepository;
 
-    public List<User> getAllUsers() {
+    public List<Person> getAllUsers() {
         return userRepository.findAll();
     }
 
-    public void saveUser(User user) {
+    public void saveUser(Person user) {
         userRepository.save(user);
     }
 
-    public User getUserById(Long id) {
+    public Person getUserById(String id) {
         return userRepository.findById(id).orElse(null);
     }
 
-    public void deleteUserById(Long id) {
+    public void deleteUserById(String id) {
         userRepository.deleteById(id);
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.backend.model.User;
+import com.example.backend.model.Person;
 import com.example.backend.service.UserService;
 
 @Controller
@@ -25,26 +25,26 @@ public class UserController {
 
     @GetMapping("/new")
     public String showNewUserForm(Model model) {
-        User user = new User();
+        Person user = new Person();
         model.addAttribute("user", user);
         return "/form";
     }
 
     @PostMapping("/save")
-    public String saveUser(@ModelAttribute("user") User user) {
+    public String saveUser(@ModelAttribute("user") Person user) {
         userService.saveUser(user);
         return "redirect:/";
     }
 
     @GetMapping("/edit/{id}")
-    public String showFormForUpdate(@PathVariable("id") Long id, Model model) {
-        User user = userService.getUserById(id);
+    public String showFormForUpdate(@PathVariable("id") String id, Model model) {
+    	Person user = userService.getUserById(id);
         model.addAttribute("user", user);
         return "/form";
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteUser(@PathVariable("id") Long id) {
+    public String deleteUser(@PathVariable("id") String id) {
         userService.deleteUserById(id);
         return "redirect:/";
     }
