@@ -15,6 +15,7 @@ public class PersonService{
     private PersonRepository personRepository;
 
     public List<Person> getAllUsers() {
+    	System.out.println(personRepository.findAll().toString());
         return personRepository.findAll();
     }
 
