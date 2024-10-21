@@ -11,13 +11,15 @@ public class Person {
     private String id;
     
     private String name;
-    private int age;
+    private String email;
+	private String role;
     
     public Person() {}
     
-    public Person(String name, int age) {
+    public Person(String name, String email,String role) {
         this.name = name;
-        this.age = age;
+        this.email = email;
+		this.role = role;
     }
 
 	public String getId() {
@@ -36,12 +38,20 @@ public class Person {
 		this.name = name;
 	}
 
-	public int getAge() {
-		return age;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 }

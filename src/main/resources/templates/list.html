@@ -18,14 +18,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="user : ${users}">
-                <td th:text="${user.id}"></td>
-                <td th:text="${user.name}"></td>
-                <td th:text="${user.email}"></td>
-                <td th:text="${user.role}"></td>
+            <tr th:each="person : ${persons}">
+                <td th:text="${person.id}"></td>
+                <td th:text="${person.name}"></td>
+                <td th:text="${person.email}"></td>
+                <td th:text="${person.role}"></td>
                 <td>
-                    <a th:href="@{/edit/{id}(id=${user.id})}">Edit</a> |
-                    <a th:href="@{/delete/{id}(id=${user.id})}">Delete</a>
+                    <a th:href="@{/edit/{id}(id=${person.id})}">Edit</a> |
+                    <a th:href="@{/delete/{id}(id=${person.id})}">Delete</a>
                 </td>
             </tr>
         </tbody>

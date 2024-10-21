@@ -9,43 +9,43 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.backend.model.Person;
-import com.example.backend.service.UserService;
+import com.example.backend.service.PersonService;
 
 @Controller
-public class UserController {
+public class PersonController {
 
     @Autowired
-    private UserService userService;
+    private PersonService personService;
 
     @GetMapping
     public String viewHomePage(Model model) {
-        model.addAttribute("users", userService.getAllUsers());
+        model.addAttribute("persons", personService.getAllUsers());
         return "/list";
     }
 
     @GetMapping("/new")
     public String showNewUserForm(Model model) {
-        Person user = new Person();
-        model.addAttribute("user", user);
+        Person person = new Person();
+        model.addAttribute("person", person);
         return "/form";
     }
 
     @PostMapping("/save")
     public String saveUser(@ModelAttribute("user") Person user) {
-        userService.saveUser(user);
+        personService.saveUser(user);
         return "redirect:/";
     }
 
     @GetMapping("/edit/{id}")
     public String showFormForUpdate(@PathVariable("id") String id, Model model) {
-    	Person user = userService.getUserById(id);
+    	Person user = personService.getUserById(id);
         model.addAttribute("user", user);
         return "/form";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteUser(@PathVariable("id") String id) {
-        userService.deleteUserById(id);
+        personService.deleteUserById(id);
         return "redirect:/";
     }
 }

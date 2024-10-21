@@ -9,24 +9,24 @@ import com.example.backend.model.Person;
 import com.example.backend.respository.PersonRepository;
 
 @Service
-public class UserService{
+public class PersonService{
 
     @Autowired
-    private PersonRepository userRepository;
+    private PersonRepository personRepository;
 
     public List<Person> getAllUsers() {
-        return userRepository.findAll();
+        return personRepository.findAll();
     }
 
     public void saveUser(Person user) {
-        userRepository.save(user);
+        personRepository.save(user);
     }
 
     public Person getUserById(String id) {
-        return userRepository.findById(id).orElse(null);
+        return personRepository.findById(id).orElse(null);
     }
 
     public void deleteUserById(String id) {
-        userRepository.deleteById(id);
+        personRepository.deleteById(id);
     }
 }
