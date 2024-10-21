@@ -1,5 +1,8 @@
 package com.example.backend.controller;
 
+import java.util.ArrayList;
+
+import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +22,8 @@ public class PersonController {
 
     @GetMapping
     public String viewHomePage(Model model) {
-        model.addAttribute("persons", personService.getAllUsers());
+        java.util.List<Person> persons = personService.getAllUsers();
+        model.addAttribute("persons", persons);
         return "list";
     }
 
