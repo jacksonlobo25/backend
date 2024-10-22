@@ -26,6 +26,11 @@ services:
       SPRING_DATA_MONGODB_DATABASE: springbootdb
       SPRING_DATA_MONGODB_USERNAME: root
       SPRING_DATA_MONGODB_PASSWORD: password
+    networks:
+      - backend_default
+networks:
+  backend_default:
+    driver: bridge
 
 volumes:
   mongodb-data:
