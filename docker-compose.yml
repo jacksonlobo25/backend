@@ -11,6 +11,8 @@ services:
       - "27017:27017"
     volumes:
       - mongodb-data:/data/db
+    networks:
+      - backend_default
 
   springboot-app:
     build:
@@ -28,6 +30,7 @@ services:
       SPRING_DATA_MONGODB_PASSWORD: password
     networks:
       - backend_default
+
 networks:
   backend_default:
     driver: bridge
