@@ -10,7 +10,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - mongodb-data:/data/db
+      - mongod-data:/data/db
       - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
 
   springboot-app:
@@ -29,4 +29,4 @@ services:
       SPRING_DATA_MONGODB_PASSWORD: springpassword
 
 volumes:
-  mongodb-data:
+  mongod-data:
