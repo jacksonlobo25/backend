@@ -41,8 +41,8 @@ public class PersonController {
 
     @GetMapping("/edit/{id}")
     public String showFormForUpdate(@PathVariable("id") String id, Model model) {
-    	Person user = personService.getUserById(UUID.fromString(id));
-        model.addAttribute("user", user);
+    	Person person = personService.getUserById(UUID.fromString(id));
+        model.addAttribute("person", person);
         return "form";
     }
 
