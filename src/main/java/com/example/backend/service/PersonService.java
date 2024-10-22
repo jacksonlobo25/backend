@@ -1,6 +1,7 @@
 package com.example.backend.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,11 +28,11 @@ public class PersonService{
         personRepository.save(user);
     }
 
-    public Person getUserById(String id) {
+    public Person getUserById(UUID id) {
         return personRepository.findById(id).orElse(null);
     }
 
-    public void deleteUserById(String id) {
+    public void deleteUserById(UUID id) {
         personRepository.deleteById(id);
     }
 }

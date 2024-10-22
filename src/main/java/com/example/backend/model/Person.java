@@ -1,32 +1,36 @@
 package com.example.backend.model;
 
+import java.util.UUID;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.bson.types.ObjectId;
 
 @Document(collection = "persons")
 public class Person {
     
     @Id
-    private ObjectId id;
+    private UUID  id;
     
     private String name;
     private String email;
 	private String role;
     
-    public Person() {}
+	public Person() {
+        this.id = UUID.randomUUID(); // Generate a new UUID for the ID field
+    }
     
     public Person(String name, String email,String role) {
+    	this.id = UUID.randomUUID();
         this.name = name;
         this.email = email;
 		this.role = role;
     }
 
-	public ObjectId getId() {
+	public UUID getId() {
 		return id;
 	}
 
-	public void setId(ObjectId id) {
+	public void setId(UUID id) {
 		this.id = id;
 	}
 

@@ -1,5 +1,7 @@
 package com.example.backend.controller;
 
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,14 +41,14 @@ public class PersonController {
 
     @GetMapping("/edit/{id}")
     public String showFormForUpdate(@PathVariable("id") String id, Model model) {
-    	Person user = personService.getUserById(id);
+    	Person user = personService.getUserById(UUID.fromString(id));
         model.addAttribute("user", user);
         return "form";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteUser(@PathVariable("id") String id) {
-        personService.deleteUserById(id);
+        personService.deleteUserById(UUID.fromString(id));
         return "redirect:/";
     }
 }
