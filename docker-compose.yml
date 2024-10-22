@@ -5,12 +5,12 @@ services:
     image: mongo:latest
     container_name: mongodb
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_ROOT_USERNAME: springuser
+      MONGO_INITDB_ROOT_PASSWORD: springpassword
     ports:
       - "27017:27017"
     volumes:
-      - mongod-data:/data/db
+      - mongo-data:/data/db
       - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
 
   springboot-app:
@@ -29,4 +29,4 @@ services:
       SPRING_DATA_MONGODB_PASSWORD: springpassword
 
 volumes:
-  mongod-data:
+  mongo-data:
